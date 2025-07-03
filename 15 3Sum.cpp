@@ -7,20 +7,28 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        set<vector<int>>s;
+        vector<vector<int>> ans;
         int n = nums.size();
-        for( int i = 0, sum; i < n; i++) {
-            int j = i + 1, k = n - 1;
-            while (j < k) {
-                sum = nums[i] + nums[j] + nums[k];
-                if (sum > 0) k--;
-                else if (sum < 0) j++;
-                else s.insert({nums[i], nums[j++], nums[k--]});
+        for (int i = 0; i < n;) {
+            for (int j = i + 1, k = n - 1; j < k;) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum == 0) {
+                    ans.push_back({nums[i], nums[j], nums[k]});
+                    j = getNextDistinct(j, nums);
+                } else if (sum > 0) {
+                    k--;
+                } else {
+                    j++;
+                }
             }
+            i = getNextDistinct(i, nums);
         }
-        vector<vector<int>> res;
-        for(vector<int> v: s) 
-            res.push_back(v);
-        return res;
+        return ans;
+    }
+
+    int getNextDistinct(int i, const vector<int>& nums) {
+        int n = nums.size(), value = nums[i];
+        while (i < n && nums[i] == value) i++;
+        return i;
     }
 };
