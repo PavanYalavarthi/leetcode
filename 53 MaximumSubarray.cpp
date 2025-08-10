@@ -6,11 +6,11 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int max_sum = -10001, sum = 0;
-        for (int num : nums) {
-            sum += num;
-            max_sum = max(max_sum, sum);
-            sum = max(sum, 0);
+        int sum = 0, max_sum = INT_MIN;
+        for(int i = 0; i < nums.size(); i++) {
+            sum += nums[i];
+            if (max_sum < sum) max_sum = sum;
+            if (sum < 0) sum = 0;
         }
         return max_sum;
     }
