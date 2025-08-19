@@ -1,10 +1,11 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int left = 0, right = height.size() -1, ans =0, h;
-        while (left < right) {
-            h = height[left] < height[right] ? height[left++] : height[right--];
-            ans = max(ans, h * (right - left + 1));
+        vector<int>::iterator left = height.begin(), right = height.end() - 1, h = right;
+        int ans = 0;
+        while ( left != right ) {
+            h = (*left < *right) ? left++ : right--;
+            ans = max(ans, static_cast<int>(*h * (right - left + 1)));
         }
         return ans;
     }

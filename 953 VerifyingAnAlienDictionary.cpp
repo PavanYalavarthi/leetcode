@@ -1,18 +1,20 @@
 class Solution {
-    unordered_map<char, int> mp;
 public:
     bool isAlienSorted(vector<string>& words, string order) {
-        for(int i =0 ; i< order.size();i++) mp[order[i]] = i;
+        int rank[26];
+        for(int i = 0; i< 26; i++) rank[order[i] - 'a'] = i;
         for(int i = 1; i < words.size(); i++) {
-            if(isNotOrdered(words[i-1], words[i])) return false;
+            if(isGreater(words[i - 1], words[i], rank))
+                return false;
         }
         return true;
     }
-    bool isNotOrdered(string s1, string s2) {
-        for(int i = 0; i< min(s1.size(), s2.size()); i++) {
-            if (mp[s1[i]] > mp[s2[i]]) return true;
-            else if(mp[s1[i]] < mp[s2[i]]) return false;
+
+    bool isGreater(string s, string t, int rank[]) {
+        for(int i = 0; i < min(s.size(), t.size()); i++) {
+            if (s[i] == t[i]) continue;
+            return rank[s[i] - 'a'] > rank[t[i] - 'a']; 
         }
-        return s1.size() > s2.size();
+        return s.size() > t.size();
     }
 };
