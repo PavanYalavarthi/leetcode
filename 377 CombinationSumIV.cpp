@@ -1,12 +1,11 @@
 class Solution {
-    unordered_map<int,int>dp;
+    unordered_map<int, int> dp = {{0, 1}};
 public:
     int combinationSum4(vector<int>& nums, int target) {
-        if (dp.count(target) != 0) return dp[target];
-        if (target == 0) return 1;
+        if (auto it = dp.find(target); it != dp.end()) return it->second;
         int ans = 0;
         for (int num: nums) {
-            if (target >= num)
+            if (target >= num) 
                 ans += combinationSum4(nums, target - num);
         }
         return dp[target] = ans;
