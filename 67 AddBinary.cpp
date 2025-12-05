@@ -6,17 +6,19 @@
 class Solution {
 public:
     string addBinary(string a, string b) {
-        int m = a.size(), n = b.size();
-        if (a.size() < b.size()) swap(a,b);
+        if (a.size() < b.size()) swap(a, b);
+        
         int carry = 0, j = b.size() - 1;
         string res;
-        for(int i = a.size() -1 ; i>= 0; i--) {
-            carry += a[i] + (j >= 0 ? b[j--] : 0);
-            res += (carry & 1) + '0';
+        
+        for (int i = a.size() - 1; i >= 0; i--) {
+            carry += (a[i] - '0') + (j >= 0 ? b[j--] - '0' : 0);
+            res += char((carry & 1) + '0');
             carry >>= 1;
         }
         if (carry) res += '1';
-        reverse(begin(res), end(res));
+        
+        reverse(res.begin(), res.end());
         return res;
     }
 };
