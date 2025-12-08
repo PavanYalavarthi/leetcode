@@ -19,4 +19,3 @@ class Solution {
         return s.substring(mx - dp[mx] , mx + dp[mx] + 1).replaceAll("#","");
     }
 };
-           
