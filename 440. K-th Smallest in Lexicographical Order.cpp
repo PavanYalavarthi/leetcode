@@ -1,3 +1,12 @@
+/*
+Problem credits: https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/
+
+Given two integers n and k, return the kth lexicographically smallest integer in the range [1, n].
+
+Solution:
+    We check how many children we have between i and i+1, if count >= k, going to lower level
+
+*/
 class Solution {
 public:
     int findKthNumber(int n, int k) {
@@ -6,7 +15,7 @@ public:
 
     int solve(long current, int n, int k) {
         if (k == 0) return current / 10;
-        for(long i = max(1L, current); i <= current + 10; i++) {
+        for(long i = max(1L, current); i < (current/10) * 10 + 10; i++) {
             int count = numOfChildren(i, i+1, n);
             if (count >= k) {
                 return solve(i * 10, n, k - 1);

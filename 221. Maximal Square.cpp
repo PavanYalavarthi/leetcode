@@ -1,3 +1,10 @@
+/*
+problem credits: https://leetcode.com/problems/maximal-square/
+
+Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+
+Solution: dp[i][j] = 1 + min({dp[i-1][j], dp[i-1][j-1], dp[i][j-1]})
+*/
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) {

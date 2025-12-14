@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/word-ladder/
+
+Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
+
+Solution:
+    Use bfs, and incremnt ans after processing a complete level
+*/
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {

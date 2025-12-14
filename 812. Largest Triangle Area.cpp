@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/largest-triangle-area/
+
+Given an array of points on the X-Y plane points where points[i] = [xi, yi], return the area of the largest triangle that can be formed by any three different points. Answers within 10-5 of the actual answer will be accepted.
+
+Solution: 
+  Brute force of triangle area =  abs(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2)) / 2;
+*/
 class Solution {
 public:
     double largestTriangleArea(vector<vector<int>>& points) {

@@ -1,7 +1,11 @@
 /*
- * Time complexity : O(n)
- * Space complexity : O(1)
- * Running DFS on number, where if you can go deeper by mutliplying 10 we go, else increment the number
+Problem credits: https://leetcode.com/problems/lexicographical-numbers/
+
+Given an integer n, return all the numbers in the range [1, n] sorted in lexicographical order.
+
+You must write an algorithm that runs in O(n) time and uses O(1) extra space. 
+
+Solution:  Running DFS on number, where if you can go deeper by mutliplying 10 we go, else increment the number
 */
 class Solution {
 public:

@@ -1,3 +1,12 @@
+/*
+Problem credits: https://leetcode.com/problems/rotate-array/
+
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+Solution: initally convert k to k % n
+
+And now, reverse 1.. n-k, n-k+1, n and then 1 .. n
+*/
 class Solution {
 public:
     void reverse(vector<int>&nums, int start, int end){

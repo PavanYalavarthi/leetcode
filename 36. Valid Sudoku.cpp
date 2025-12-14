@@ -1,3 +1,11 @@
+/*
+problem credits: https://leetcode.com/problems/valid-sudoku/description/
+
+Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+
+Solution: 
+    Use block =  i/3 * 3 + j/3 and check whether given number appears in row, col and block
+*/
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {

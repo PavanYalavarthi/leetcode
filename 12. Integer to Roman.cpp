@@ -1,3 +1,10 @@
+/*
+Problem credits: https://leetcode.com/problems/integer-to-roman/
+
+Given an integer, convert it to a Roman numeral.
+
+Solution: Self explantory.
+*/
 class Solution {
 public:
     string intToRoman(int num) {

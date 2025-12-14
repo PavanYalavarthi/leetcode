@@ -1,3 +1,10 @@
+/*
+Problem credits: https://leetcode.com/problems/combination-sum/
+
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+Solution: Use backtracking, pick the element and not picking element.  If taregt requirfed == 0, them push combination to ans
+*/
 class Solution {
     vector<vector<int>>res;
 public:

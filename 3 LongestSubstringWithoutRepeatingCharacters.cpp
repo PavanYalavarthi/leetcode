@@ -1,7 +1,12 @@
 /*
  * Time complexity : O(n)
  * Space complexity : O(n)
- * Two pointer approach: when duplicate is seen, move startIndex to max(startIndex, duplicates previous index + 1 )
+ 
+ Problem credits: https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+ Given a string s, find the length of the longest substring without duplicate characters.
+
+ Solution: Two pointer approach: when duplicate is seen, move startIndex to max(startIndex, duplicates previous index + 1 )
  */
 class Solution {
 public:
@@ -11,7 +16,6 @@ public:
         for (int i = 1; i < n; i++) {
             if (map.find(s[i]) != map.end()) {
                 ans = max(ans, i - startIndex);
-                cout << ans;
                 startIndex = max(startIndex, map[s[i]] + 1);
             }
             map[s[i]] = i;

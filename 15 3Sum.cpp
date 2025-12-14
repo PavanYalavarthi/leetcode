@@ -1,3 +1,15 @@
+/*
+Problem credits: https://leetcode.com/problems/3sum/
+
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+Notice that the solution set must not contain duplicate triplets.
+
+Solution:
+    Sort them and fix i and use find indices j and k using 2 pointer.
+
+    Always pick i and j to be next distinct index to avoid duplicates.
+*/
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {

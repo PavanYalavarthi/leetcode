@@ -1,23 +1,25 @@
+/*
+Problem credits: https://leetcode.com/problems/k-inverse-pairs-array/
+
+For an integer array nums, an inverse pair is a pair of integers [i, j] where 0 <= i < j < nums.length and nums[i] > nums[j].
+
+Given two integers n and k, return the number of different arrays consisting of numbers from 1 to n such that there are exactly k inverse pairs. Since the answer can be huge, return it modulo 109 + 7.
+
+Solution:
+    inversion count ranges from 0 to n-1.(picking smallest number to largest) So, doing the same
+*/
+#define MOD 1000000007
 class Solution {
-private:
-    const int mod=int(1e9+7);
-    int dp[1001][1001];
-    int f(int n,int k) {
-        //base case
-        if(k<=0) return k==0;
-        if(dp[n][k]!=-1) return dp[n][k];
-
-
-        int ans=0;
-        for(int i=0;i<n;++i) {
-            ans+=f(n-1,k-i);
-            ans%=mod;
-        }
-        return dp[n][k]=ans;
-    }
 public:
     int kInversePairs(int n, int k) {
-        memset(dp,-1,sizeof(dp));
-        return f(n,k);
+        int dp[2][1001] = { 1 };
+        for (int N = 1; N <= n; ++N) {
+            for (int K = 0; K <= k; ++K) {
+                dp[N % 2][K] = (dp[(N - 1) % 2][K] + (K > 0 ? dp[N % 2][K - 1] : 0)) % MOD;
+                if (K >= N)
+                    dp[N % 2][K] = (MOD + dp[N % 2][K] - dp[(N - 1) % 2][K - N]) % MOD;
+            }
+        }
+        return dp[n % 2][k];
     }
 };

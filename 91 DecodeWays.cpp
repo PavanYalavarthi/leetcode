@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/decode-ways/
+
+Given a string s containing only digits, return the number of ways to decode it. If the entire string cannot be decoded in any valid way, return 0.
+
+Solution: 
+    Self explanatory
+*/
 class Solution {
 public:
     int numDecodings(string s) {

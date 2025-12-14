@@ -1,7 +1,9 @@
 /*
- * Time complexity : O(m)
- * Space complexity : O(1)
- * increment count for every char of s and decrement for every char of t. If they are anagrams, the value will be 0 for each;
+Problem credits: https://leetcode.com/problems/valid-anagram/
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+Solution: increment count for every char of s and decrement for every char of t. If they are anagrams, the value will be 0 for each;
 */
 class Solution {
 public:

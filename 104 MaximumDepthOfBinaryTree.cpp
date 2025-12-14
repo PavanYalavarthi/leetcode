@@ -1,3 +1,10 @@
+/*
+Problem credits: https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
+Given the root of a binary tree, return its maximum depth.
+
+Solution: 1 + max(maxDepth(root->left), maxDepth(root->right));
+*/
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

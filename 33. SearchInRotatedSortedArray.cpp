@@ -1,3 +1,14 @@
+/*
+problem credits: https://leetcode.com/problems/search-in-rotated-sorted-array/
+
+Given the array nums after the possible rotation of a sorted array and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+Solution:
+    Consider it as 2 sorted sequence low .. i and i .. high, i is min value/
+    ele >= [mid] => If a[low] <= target <= a[mid] => then high =- mid -1 else mid +1
+    if a[mid] <= target <= a[high] => low = mid +1;
+    else high = mid - 1;
+*/
 class Solution {
 public:
     int search(vector<int>& nums, int target) {

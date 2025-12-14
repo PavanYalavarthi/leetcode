@@ -1,3 +1,12 @@
+/*
+
+Problem credits: https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+
+Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
+
+Solution: 
+    As one duplicate is allowed, check for k-2 element. if it is not equal, move the ans
+*/
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {

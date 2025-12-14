@@ -1,4 +1,9 @@
 /*
+Problem credits: https://leetcode.com/problems/integer-to-english-words/
+
+Convert a non-negative integer num to its English words representation.
+
+Solution:
     Initialize every distinct word in vector. Now loop to it and get 
         prefix => (num / val)
         unit => word

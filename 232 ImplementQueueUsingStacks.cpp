@@ -1,7 +1,9 @@
 /*
- * Time complexity : O(1) [Amortized cost]
- * Space complexity : O(n)
- * A simple DFS on the matrix
+Problem credits: https://leetcode.com/problems/implement-queue-using-stacks/
+
+Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+
+Solution: Making pop to be O(n).
 */
 class MyQueue {
 public:

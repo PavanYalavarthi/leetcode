@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/palindrome-linked-list/
+
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+Solution:
+    reverse the second half of the list and keep checking elements
+*/
 /**
  * Definition for singly-linked list.
  * public class ListNode {

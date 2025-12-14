@@ -1,3 +1,10 @@
+/*
+problem credits: https://leetcode.com/problems/contains-duplicate-ii/
+
+Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+SOlution: Hash element with index and see its repetition lies within k
+*/
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {

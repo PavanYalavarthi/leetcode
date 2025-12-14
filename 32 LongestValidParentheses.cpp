@@ -1,3 +1,10 @@
+/*
+Problem credits: https://leetcode.com/problems/longest-valid-parentheses/
+
+Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses substring.
+
+Solution: using stack to get valid paranthesis. Pushing -1 as index where valid paranthesis is missed.
+*/
 class Solution {
 public:
     int longestValidParentheses(string s) {

@@ -6,7 +6,7 @@ class Solution {
    
 public:
     int countElements(vector<int>& nums, int k) {
-         tree < int ,  null_type ,  less_equal<int> ,  rb_tree_tag ,  tree_order_statistics_node_update > os;
+        tree < int ,  null_type ,  less_equal<int> ,  rb_tree_tag ,  tree_order_statistics_node_update > os;
         for(int num: nums) {
             os.insert(num);
         }

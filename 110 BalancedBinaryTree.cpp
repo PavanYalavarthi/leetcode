@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/balanced-binary-tree/
+
+Given a binary tree, determine if it is height-balanced.
+
+solution: 
+    Keep checking left and right height and difference is <= 1
+*/
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

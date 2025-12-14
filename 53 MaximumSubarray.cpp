@@ -1,7 +1,9 @@
 /*
- * Time complexity : O(n)
- * Space complexity : O(1)
- * Kadane's Algo
+Problem credits: https://leetcode.com/problems/maximum-subarray/
+
+Given an integer array nums, find the subarray with the largest sum, and return its sum.
+
+Solution: Kadane's algorithm
  */
 class Solution {
 public:

@@ -1,7 +1,12 @@
 /*
- * Time complexity : O(m * n)
- * Space complexity : O(m * n)
- * multi source bfs + Shortest path using bfs
+Problem credits: https://leetcode.com/problems/01-matrix/
+
+Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
+
+The distance between two cells sharing a common edge is 1.
+
+Solution:
+    multi source bfs + Shortest path using bfs
  */
 class Solution {
 public:

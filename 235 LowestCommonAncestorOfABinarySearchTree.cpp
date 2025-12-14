@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+
+Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.
+
+Solution: 
+    Need to get node, where one node is on left and other on right or either of them  is thr root
+*/
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

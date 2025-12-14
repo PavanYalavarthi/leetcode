@@ -1,3 +1,11 @@
+/*
+Problem credits: https://leetcode.com/problems/longest-consecutive-sequence/
+
+Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+
+SOlution:
+    Update ends of sequence to show how much sequence it carries
+*/
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {

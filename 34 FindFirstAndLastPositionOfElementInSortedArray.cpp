@@ -1,3 +1,15 @@
+/*
+Problem credits: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+
+If target is not found in the array, return [-1, -1].
+
+You must write an algorithm with O(log n) runtime complexity.
+
+Solution:
+    binary search in array, and use flag whether ot move to left or right post element is found
+*/
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {

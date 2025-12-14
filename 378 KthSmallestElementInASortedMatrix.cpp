@@ -1,3 +1,15 @@
+/*
+problem credits: https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
+
+Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.
+
+Note that it is the kth smallest element in the sorted order, not the kth distinct element.
+
+You must find a solution with a memory complexity better than O(n2).
+
+Solution:
+    Do binary search on low and high values, and get count of it till it is equal to k
+*/
 class Solution {
 public:
     int kthSmallest(vector<vector<int>>& matrix, int k) {

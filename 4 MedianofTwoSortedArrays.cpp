@@ -1,3 +1,15 @@
+/*
+Problem credits: 4. Median of Two Sorted Arrays
+
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+Solution: pick mid in smallest array and and get respective mid in the largest array(#ele /2 - mid1)
+
+Now, compare edges, if l1>r2, median needed to be < mid, so right = mid - 1, 
+if l2 < r2, left - mid+1
+
+Else, we are at the right position, if odd, min(r1,r2) else avg of min(r1, r1) + max(l1, l2)
+*/
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {

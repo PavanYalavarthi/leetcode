@@ -1,3 +1,10 @@
+/*
+problem credits: https://leetcode.com/problems/unique-paths/
+
+Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+
+Solution: (m+n-2)c(m-1)
+*/
 class Solution {
 public:
     int uniquePaths(int m, int n) {

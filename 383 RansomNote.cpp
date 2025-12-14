@@ -1,7 +1,12 @@
 /*
- * Time complexity : O(m + n)
- * Space complexity : O(1)
- * Calculating freq of each char in magazine and decrementing the same for evry char in ransomNote. If count becomes 0 before decrement returning false. else true
+problem credits: https://leetcode.com/problems/ransom-note/
+
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.
+
+
+Solution: Calculating freq of each char in magazine and decrementing the same for evry char in ransomNote. If count becomes 0 before decrement returning false. else true
 */
 
 class Solution {

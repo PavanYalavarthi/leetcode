@@ -1,3 +1,11 @@
+/*
+Problem description: https://leetcode.com/problems/roman-to-integer/
+
+Given a roman numeral, convert it to an integer.
+
+SOlution: 
+    If current index value is lessthan than next index, then its minus else plus value
+*/
 class Solution {
 public:
     int romanToInt(string s) {

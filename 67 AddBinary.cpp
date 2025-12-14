@@ -1,8 +1,11 @@
 /*
- * Time complexity : O(m+n)
- * Space complexity : O(1)
- * Basic binary addition 
- */
+Problem credits: https://leetcode.com/problems/add-binary/
+
+Given two binary strings a and b, return their sum as a binary string.
+
+Solution: Basic binary addition, using 
+
+*/
 class Solution {
 public:
     string addBinary(string a, string b) {

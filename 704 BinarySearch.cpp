@@ -1,7 +1,9 @@
 /*
- * Time complexity : O(log n)
- * Space complexity : O(1)
- * increment count for every char of s and decrement for every char of t. If they are anagrams, the value will be 0 for each;
+Problem credits: https://leetcode.com/problems/binary-search/description/
+
+Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+Solution: Binary search
 */
 class Solution {
 public:

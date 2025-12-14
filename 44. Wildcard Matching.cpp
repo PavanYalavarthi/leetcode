@@ -1,3 +1,18 @@
+/*
+
+Problem description: https://leetcode.com/problems/wildcard-matching/
+
+Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*' where:
+
+'?' Matches any single character.
+'*' Matches any sequence of characters (including the empty sequence).
+The matching should cover the entire input string (not partial).
+
+Solution: 
+First remove consecutive *s. And, use dp
+if it is char or ?, matych both and move to rest
+If *, does consume it resulting dp[i][j-1], or consume one char and keepng * i.e., dp[i-1][j]
+*/
 class Solution {
 public:
     bool isMatch(string s, string p) {

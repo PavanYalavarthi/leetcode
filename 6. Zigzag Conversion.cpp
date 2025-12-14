@@ -1,3 +1,8 @@
+/*
+Problem credits: https://leetcode.com/problems/zigzag-conversion/
+
+Solution: When series hits top boundaryi.e., i = 0, the incremnt of row is 1 and if it hits bottom then -1.
+*/
 class Solution {
 public:
     string convert(string s, int numRows) {

@@ -1,3 +1,14 @@
+/*
+Problem credits: https://leetcode.com/problems/find-the-duplicate-number/
+
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+
+There is only one repeated number in nums, return this repeated number.
+
+You must solve the problem without modifying the array nums and using only constant extra space.
+
+Solution: As elements are 1 .. N, we can treat it as linked list and use hare tortoise algo to get the index that started cycle
+*/
 class Solution {
 public:
     int findDuplicate(std::vector<int>& nums) {
