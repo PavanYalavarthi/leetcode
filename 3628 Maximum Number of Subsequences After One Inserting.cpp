@@ -1,3 +1,18 @@
+/*
+Problem credits: https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/description/
+
+You are given a string s consisting of uppercase English letters.
+
+You are allowed to insert at most one uppercase English letter at any position (including the beginning or end) of the string.
+
+Return the maximum number of "LCT" subsequences that can be formed in the resulting string after at most one insertion.
+
+Solution:
+    For extra L, maximu happens when inserted at start. And at the end for T
+
+    and for c max prefix[l] * prefix[t]
+
+*/
 class Solution {
 public:
     long long numOfSubsequences(string s) {

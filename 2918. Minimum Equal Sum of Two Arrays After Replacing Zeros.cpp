@@ -1,10 +1,24 @@
+/*
+Problem credits: https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/description/
+
+You are given two arrays nums1 and nums2 consisting of positive integers.
+
+You have to replace all the 0's in both arrays with strictly positive integers such that the sum of elements of both arrays becomes equal.
+
+Return the minimum equal sum you can obtain, or -1 if it is impossible.
+
+Solution:
+    Pick sum of non zero elemets and noOFZeros in each array.
+
+    If there are no zeros in both, then sum needed to be equal and return the sum
+
+    If any of them have no zeros, its sum should be atleast other sum + zeros
+
+    Else, max of min1 and min2
+*/
 class Solution {
 public:
     long long minSum(vector<int>& nums1, vector<int>& nums2) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(0);
-        cout.tie(0);
-
         long long sum1 = 0, sum2 = 0;
         int zeros1 = 0, zeros2 = 0;
 

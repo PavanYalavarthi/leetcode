@@ -1,16 +1,35 @@
-static int MOD=1e9+7;
+/*
+Problem credits: https://leetcode.com/problems/number-of-people-aware-of-a-secret/description/
+
+On day 1, one person discovers a secret.
+
+You are given an integer delay, which means that each person will share the secret with a new person every day, starting from delay days after discovering the secret. You are also given an integer forget, which means that each person will forget the secret forget days after discovering it. A person cannot share the secret on the same day they forgot it, or on any day afterwards.
+
+Given an integer n, return the number of people who know the secret at the end of day n. Since the answer may be very large, return it modulo 109 + 7.
+
+Solution:
+    dp[i] -> #people who learn secret exactly on that day
+    dp[i] = dp[i-forget+1] .. dp[i-delay] => to optimize this loop, we are using prefixSum
+    Final ans = dp[n] - dp[n - forget]
+*/
+#define MOD 1000000007
 class Solution {
 public:
     int peopleAwareOfSecret(int n, int delay, int forget) {
-        deque<long> memo={0},prefixSum={0}; // Dynamic lists to help discard values in the front (optimizations).
-        for(int i=1;i<=n;i++) {
-            // Same as previous section prefix sum optimization.
-			// Here we add 1 as the contribution of ith day as we don't iniatilize memo with 1s
-            memo.push_back((1+prefixSum[max(0,(int)prefixSum.size()-delay)]-prefixSum[max(0,(int)prefixSum.size()-forget)]+MOD)%MOD);
-            prefixSum.push_back((prefixSum.back()+memo.back())%MOD); // Store the prefixSum for ith state of dp.
-            if(memo.size()>forget+1)    // Optimization to discard non-required values
-                memo.pop_front(),prefixSum.pop_front();
+        vector<long long> dp(n+1), pref(n+1);
+        dp[1] = 1;
+        pref[0] = 0, pref[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            int l = max(1, i - forget + 1);
+            int r = i - delay;
+            if (r >= l)
+                dp[i] = (pref[r] - pref[l-1] + MOD) % MOD;
+            pref[i] = (pref[i-1] + dp[i]) % MOD;
         }
-        return (memo.back()-memo.front()+MOD)%MOD; // Subtract the people who found out by the `n-forget` day as observed.
+
+        int l = max(0, n - forget);
+        int ans = (pref[n] - pref[l] + MOD) % MOD;
+        return ans;
     }
 };

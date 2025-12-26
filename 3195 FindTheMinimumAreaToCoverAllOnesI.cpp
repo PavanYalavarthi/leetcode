@@ -1,3 +1,13 @@
+/*
+Problem credits: https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/description/
+
+You are given a 2D binary array grid. Find a rectangle with horizontal and vertical sides with the smallest area, such that all the 1's in grid lie inside this rectangle.
+
+Return the minimum possible area of the rectangle.
+
+Solution:
+    Pick min and max of (1, j) for all cells with 1
+*/
 class Solution {
 public:
     int minimumArea(vector<vector<int>>& grid) {

@@ -1,3 +1,10 @@
+/*
+Problem credits: https://leetcode.com/problems/three-consecutive-odds/
+
+Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.
+
+Solution: keep counter of number of consective odds, if counter hit 3 return true
+*/
 class Solution {
 public:
     bool threeConsecutiveOdds(vector<int>& arr) {

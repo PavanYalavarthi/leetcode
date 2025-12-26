@@ -1,11 +1,26 @@
+/*
+Problem credits: https://leetcode.com/problems/water-bottles-ii/description/
+
+You are given two integers numBottles and numExchange.
+
+numBottles represents the number of full water bottles that you initially have. In one operation, you can perform one of the following operations:
+
+Drink any number of full water bottles turning them into empty bottles.
+Exchange numExchange empty bottles with one full water bottle. Then, increase numExchange by one.
+Note that you cannot exchange multiple batches of empty bottles for the same value of numExchange. For example, if numBottles == 3 and numExchange == 1, you cannot exchange 3 empty water bottles for 3 full bottles.
+
+Return the maximum number of water bottles you can drink.
+
+Solution:
+    numExchange + .. + (numExchange + t - 1) <= numBottle + t => solve it, its the t which break the condition
+*/
 class Solution {
 public:
     int maxBottlesDrunk(int numBottles, int numExchange) {
-        int a = 1;
+        if (numBottles < numExchange) return numBottles;
         int b = 2 * numExchange - 3;
-        int c = -2 * numBottles;
-        double delta = (double)b * b - 4.0 * a * c;
-        int t = (int)ceil((-b + sqrt(delta)) / (2.0 * a));
+        double delta = b * b + 8 * numBottles;
+        int t = ceil((-b + sqrt(delta)) / 2);
         return numBottles + t - 1;
     }
 };

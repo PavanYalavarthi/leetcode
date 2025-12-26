@@ -1,3 +1,21 @@
+/*
+problem credits: https://leetcode.com/problems/complete-prime-number/
+
+You are given an integer num.
+
+A number num is called a Complete Prime Number if every prefix and every suffix of num is prime.
+
+Return true if num is a Complete Prime Number, otherwise return false.
+
+Note:
+
+A prefix of a number is formed by the first k digits of the number.
+A suffix of a number is formed by the last k digits of the number.
+Single-digit numbers are considered Complete Prime Numbers only if they are prime.
+
+Solution:
+    get prefix and suffix of the string and if found non prime, return false;
+*/
 class Solution {
     bool isPrime(int n) {
         if (n == 1) return false;

@@ -1,12 +1,19 @@
+/*
+problem credits: https://leetcode.com/problems/find-the-pivot-integer/description/
+
+Given a positive integer n, find the pivot integer x such that:
+
+The sum of all elements between 1 and x inclusively equals the sum of all elements between x and n inclusively.
+Return the pivot integer x. If no such integer exists, return -1. It is guaranteed that there will be at most one pivot index for the given input.
+
+Solution:
+    solving eq. (1 + .. + x) = (x + .. + n) => sqrt(n * (n+1) / 2)
+*/
 class Solution {
 public:
     int pivotInteger(int n) {
-        int leftsum = n * (n + 1) / 2, rightsum = n;
-        while(leftsum > rightsum) {
-            leftsum -= n;
-            n--;
-            rightsum += n;
-        }
-        return (leftsum == rightsum) ? n : -1;
+        double ans = sqrt(n * (n+1) / 2);
+        if (ans == (int)ans) return ans;
+        return -1;
     }
 };

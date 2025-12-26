@@ -1,44 +1,43 @@
-using namespace std;
+/*
+Problem credits: https://leetcode.com/problems/find-minimum-time-to-reach-last-room-ii/description/
 
-struct Pair {
-    int steps, i, j, move;
-    Pair(int steps, int i, int j, int move) : steps(steps), i(i), j(j), move(move) {}
-    bool operator>(const Pair& other) const {
-        return steps > other.steps;
-    }
-};
+There is a dungeon with n x m rooms arranged as a grid.
 
+You are given a 2D array moveTime of size n x m, where moveTime[i][j] represents the minimum time in seconds when you can start moving to that room. You start from the room (0, 0) at time t = 0 and can move to an adjacent room. Moving between adjacent rooms takes one second for one move and two seconds for the next, alternating between the two.
+
+Return the minimum time to reach the room (n - 1, m - 1).
+
+Two rooms are adjacent if they share a common wall, either horizontally or vertically.
+
+Solution:
+    Same as leetcode 3321, just the timeToMove will be 1 or 2 based on its parity.
+*/
 class Solution {
 public:
-    static int minTimeToReach(vector<vector<int>>& moveTime) {
-        int r = moveTime.size(), c = moveTime[0].size();
-        vector<vector<int>> minimumTime(r, vector<int>(c, INT_MAX));
-        priority_queue<Pair, vector<Pair>, greater<Pair>> pq;
+    int minTimeToReach(vector<vector<int>>& moveTime) {
+        int m = moveTime.size(), n = moveTime[0].size();
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>>pq;
+        pq.push({0, 0, 0});
+        vector<vector<int>>time(m, vector<int>(n, INT_MAX));
+        time[0][0] = 0;
+        int dir[] = {0, 1, 0, -1, 0};
+        while(!pq.empty()) {
+            auto v = pq.top();
+            pq.pop();
+            int t = v[0], row = v[1], col = v[2];
+            if (row == m-1 && col == n-1) return t;
+            for(int i = 0; i < 4; i++) {
+                int new_row = row + dir[i], new_col = col + dir[i+1];
+                if (new_row == -1 || new_row == m || new_col == -1 || new_col == n) continue;
+                int timeToMove = ((new_row + new_col) % 2 == 1) ? 1 : 2;
+                int new_t = max(t, moveTime[new_row][new_col]) + timeToMove;
 
-        pq.emplace(-1, 0, 0, 1);
-        minimumTime[0][0] = 0;
-
-        while (!pq.empty()) {
-            Pair top = pq.top(); pq.pop();
-            int i = top.i, j = top.j, move = top.move, nextStep = top.steps;
-
-            if (i + 1 < r) update(i + 1, j, pq, nextStep, moveTime, minimumTime, move);
-            if (i - 1 >= 0) update(i - 1, j, pq, nextStep, moveTime, minimumTime, move);
-            if (j + 1 < c) update(i, j + 1, pq, nextStep, moveTime, minimumTime, move);
-            if (j - 1 >= 0) update(i, j - 1, pq, nextStep, moveTime, minimumTime, move);
-
-            if (minimumTime[r - 1][c - 1] != INT_MAX)
-                return minimumTime[r - 1][c - 1];
+                if (new_t < time[new_row][new_col]) {
+                    time[new_row][new_col] = new_t;
+                    pq.push({new_t, new_row, new_col});
+                }
+            }
         }
         return -1;
-    }
-
-private:
-    static void update(int i, int j, priority_queue<Pair, vector<Pair>, greater<Pair>>& pq,int nextStep,vector<vector<int>>& moveTime,vector<vector<int>>& minimumTime,int move) {
-        nextStep = move + max(nextStep, moveTime[i][j]);
-        if (minimumTime[i][j] > nextStep) {
-            pq.emplace(nextStep, i, j, move == 1 ? 2 : 1);
-            minimumTime[i][j] = nextStep;
-        }
     }
 };

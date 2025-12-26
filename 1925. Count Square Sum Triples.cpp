@@ -1,3 +1,13 @@
+/*
+Problem credits: https://leetcode.com/problems/count-square-sum-triples/description/
+
+A square triple (a,b,c) is a triple where a, b, and c are integers and a2 + b2 = c2.
+
+Given an integer n, return the number of square triples such that 1 <= a, b, c <= n.
+
+
+Solution: brute force
+*/
 class Solution {
 public:
     int countTriples(int n) {

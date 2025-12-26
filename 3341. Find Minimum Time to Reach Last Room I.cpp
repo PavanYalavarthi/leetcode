@@ -1,51 +1,42 @@
-using int3 = tuple<int, int, int>; // (time, i, j)
-const static int d[5] = {0, 1, 0, -1, 0};
+/*
+problem credits: https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/description/
+
+There is a dungeon with n x m rooms arranged as a grid.
+
+You are given a 2D array moveTime of size n x m, where moveTime[i][j] represents the minimum time in seconds after which the room opens and can be moved to. You start from the room (0, 0) at time t = 0 and can move to an adjacent room. Moving between adjacent rooms takes exactly one second.
+
+Return the minimum time to reach the room (n - 1, m - 1).
+
+Two rooms are adjacent if they share a common wall, either horizontally or vertically.
+
+Solution:
+    A simple dijkstra
+*/
 class Solution {
-public:  
-    inline static bool isOutside(int i, int j, int n, int m) {
-        return i < 0 || i >= n || j < 0 || j >= m;
-    }
-
-    static int minTimeToReach(vector<vector<int>>& moveTime) {
-        int n = moveTime.size(), m = moveTime[0].size();
-        vector<vector<int>> time(n, vector<int>(m, INT_MAX));
-        priority_queue<int3, vector<int3>, greater<int3>> pq;
-
-        // Start at (0, 0) with time 0
-        pq.emplace(0, 0, 0);
+public:
+    int minTimeToReach(vector<vector<int>>& moveTime) {
+        int m = moveTime.size(), n = moveTime[0].size();
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>>pq;
+        pq.push({0, 0, 0});
+        vector<vector<int>>time(m, vector<int>(n, INT_MAX));
         time[0][0] = 0;
-
-        while (!pq.empty()) {
-            auto [t, i, j] = pq.top();
+        int dir[] = {0, 1, 0, -1, 0};
+        while(!pq.empty()) {
+            auto v = pq.top();
             pq.pop();
+            int t = v[0], row = v[1], col = v[2];
+            if (row == m-1 && col == n-1) return t;
+            for(int i = 0; i < 4; i++) {
+                int new_row = row + dir[i], new_col = col + dir[i+1];
+                if (new_row == -1 || new_row == m || new_col == -1 || new_col == n) continue;
+                int new_t = max(t, moveTime[new_row][new_col]) + 1;
 
-            // reach the destination
-            if (i == n - 1 && j == m - 1)
-                return t;
-
-            // Traverse all four directions
-            for (int a = 0; a < 4; a++) {
-                int r = i + d[a], s = j + d[a + 1];
-                if (isOutside(r, s, n, m)) continue;
-
-                // minimum time to reach (r, s)
-                int nextTime = max(t, moveTime[r][s]) + 1; // Wait if necessary
-
-                // update if this path having quicker time
-                if (nextTime < time[r][s]) {
-                    time[r][s] = nextTime;
-                    pq.emplace(nextTime, r, s);
+                if (new_t < time[new_row][new_col]) {
+                    time[new_row][new_col] = new_t;
+                    pq.push({new_t, new_row, new_col});
                 }
             }
         }
-
-        return -1; // never reach
+        return -1;
     }
 };
-
-auto init = []() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    return 'c';
-}();

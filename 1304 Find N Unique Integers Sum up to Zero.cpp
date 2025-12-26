@@ -1,3 +1,12 @@
+/*
+Problem credits: https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/description/
+
+Given an integer n, return any array containing n unique integers such that they add up to 0.
+
+Solution: 
+    push x, -x, for x from -1 to -n/2
+    and add 0 if n is odd
+*/
 class Solution {
 public:
     vector<int> sumZero(int n) {

@@ -1,3 +1,13 @@
+/*
+    Problem credits: https://leetcode.com/problems/count-number-of-nice-subarrays/
+
+    Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
+
+    Return the number of nice sub-arrays.
+
+    Solution:
+        Keep #odd count elements and use hashing to find number of subarrys with k odds
+*/
 class Solution {
 public:
     int numberOfSubarrays(vector<int>& nums, int k) {

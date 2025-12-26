@@ -1,3 +1,14 @@
+/*
+Problem credits: https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+
+Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
+
+After doing so, return the head of the final linked list.  You may return any such answer.
+
+Solution:
+    First store prefix sum to node in hash map. And skip all the nodes that are with equal to prefix sum
+
+*/
 /**
  * Definition for singly-linked list.
  * struct ListNode {

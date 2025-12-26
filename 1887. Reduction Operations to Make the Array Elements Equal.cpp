@@ -1,18 +1,25 @@
+/*
+Problem credits: https://leetcode.com/problems/reduction-operations-to-make-the-array-elements-equal/description/
+
+Given an integer array nums, your goal is to make all elements in nums equal. To complete one operation, follow these steps:
+
+Find the largest value in nums. Let its index be i (0-indexed) and its value be largest. If there are multiple elements with the largest value, pick the smallest i.
+Find the next largest value in nums strictly smaller than largest. Let its value be nextLargest.
+Reduce nums[i] to nextLargest.
+Return the number of operations to make all elements in nums equal.
+
+Solution:
+    We needed to move all bigger numbers to smaller numbers finally to the smallest number
+*/
 class Solution {
 public:
     int reductionOperations(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> freq(50001, 0);
-        for (int i = 0; i < n; i++) {
-            freq[nums[i]]++;
+        map<int, int>mp;
+        for(int num: nums) mp[num]++;
+        int n = nums.size(), ans = 0;
+        for(auto [key, freq]: mp) {
+            ans += (n -= freq);
         }
-        int res = 0, operations = 0;
-        for (int i = 50000; i >= 1; i--) {
-            if (freq[i]) {
-                res += operations;
-                operations += freq[i];
-            }
-        }
-        return res;
+        return ans;
     }
 };
